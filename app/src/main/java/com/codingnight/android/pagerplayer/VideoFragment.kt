@@ -42,6 +42,7 @@ class VideoFragment : Fragment() {
 
                 override fun createFragment(position: Int): Fragment = PlayerFragment(videoUrls[position])
             }
+            offscreenPageLimit = 5
         }
     }
 }

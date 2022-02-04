@@ -33,7 +33,7 @@ class PlayerFragment(private val url: String) : Fragment() {
         mediaPlayer.apply {
             setOnPreparedListener {
                 videoProgressBar.max = mediaPlayer.duration
-                it.start()
+                seekTo(1)
                 loadingBar.visibility = View.INVISIBLE
             }
             setDataSource(url)
@@ -69,6 +69,12 @@ class PlayerFragment(private val url: String) : Fragment() {
     override fun onResume() {
         super.onResume()
         mediaPlayer.start()
+        lifecycleScope.launch {
+            while (!mediaPlayer.isPlaying) {
+                mediaPlayer.start()
+                delay(500)
+            }
+        }
     }
 
     override fun onPause() {
