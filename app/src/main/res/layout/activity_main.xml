@@ -18,5 +18,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@android:color/transparent"
         app:tabIndicatorFullWidth="false"
-        app:tabSelectedTextColor="@color/white" />
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        app:tabTextColor="@android:color/darker_gray"/>
 </FrameLayout>

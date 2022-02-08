@@ -40,6 +40,39 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
+        tabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    when(tab.position) {
+                        1 -> {
+                            with(tabLayout) {
+                                setTabTextColors(
+                                resources.getColor(android.R.color.darker_gray),
+                                resources.getColor(R.color.white)
+                                )
+                                setSelectedTabIndicatorColor(resources.getColor(R.color.white))
+                            }
+                        }
+                        else -> {
+                            with(tabLayout) {
+                                setTabTextColors(
+                                    resources.getColor(android.R.color.darker_gray),
+                                    resources.getColor(R.color.black)
+                                )
+                                setSelectedTabIndicatorColor(resources.getColor(android.R.color.darker_gray))
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+        })
 
     }
 }
